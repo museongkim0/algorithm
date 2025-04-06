@@ -45,3 +45,28 @@ sc.close();
 - **공백 처리**: `next()`는 공백 전까지, `nextLine()`은 개행 전까지 읽음.
 - **입력 버퍼**: 숫자 입력 후 `nextLine()` 호출 시 버퍼 비우기 필요 (예: `sc.nextLine()` 추가).
 - **예외**: 입력 타입 불일치 시 `InputMismatchException` 발생.
+
+
+# Charactor
+## 1. charAt()
+1) 문자열에서 문자하나만 가져오는 함수
+```java
+a = "aBcDeFg";
+b = a.charAt(i);
+```
+## 2. Character.isUpperCase()
+1) 문자 값이 대문자 인지 확인
+2) 반대로 Character.isLowerCase() 도 있음
+```java
+if(Character.isUpperCase(b)){}
+```
+## 3. Character.toUpperCase()
+1) 문자 값을 대문자 변환
+```java
+answer += Character.toUpperCase(b);
+```
+## 4. Character.toLowerCase()
+1) 문자 값을 소문자 변환
+```java
+answer += Character.toLowerCase(b);
+```
