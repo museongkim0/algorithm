@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/알고리즘/Stack/Stack.iml" filepath="$PROJECT_DIR$/알고리즘/Stack/Stack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/algorithms.iml" filepath="$PROJECT_DIR$/.idea/algorithms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/문제풀이/문제풀이.iml" filepath="$PROJECT_DIR$/문제풀이/문제풀이.iml" />
+      <module fileurl="file://$PROJECT_DIR$/알고리즘/알고리즘.iml" filepath="$PROJECT_DIR$/알고리즘/알고리즘.iml" />
+    </modules>
+  </component>
+</project>

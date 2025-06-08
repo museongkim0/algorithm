@@ -1,0 +1,1 @@
+{"name":"Local: list","url":"c:\\Users\\ms0\\Desktop\\git_ms\\algorithms\\백준\\list.py","tests":[{"id":1749005734063,"input":"11\n1 4 1 2 4 2 4 2 3 4 4\n2","output":"3"},{"id":1749005820599,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\ms0\\Desktop\\git_ms\\algorithms\\백준\\list.py","group":"local","local":true}
