@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Stack {
     private int top;
     private int[] array_list;
@@ -23,6 +25,7 @@ public class Stack {
         }
         this.top++;
         array_list[top] = data;
+        System.out.println(Arrays.toString(array_list));
     }
 
     public int pop(){
@@ -32,6 +35,7 @@ public class Stack {
         int var = array_list[top];
         System.out.println("pop: "+var);
         top --;
+        System.out.println(Arrays.toString(array_list));
         return var;
     }
 

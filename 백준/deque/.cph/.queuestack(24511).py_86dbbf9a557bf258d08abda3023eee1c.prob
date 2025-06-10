@@ -1,0 +1,1 @@
+{"name":"Local: queuestack(24511)","url":"c:\\Users\\ms0\\Desktop\\git_ms\\algorithms\\백준\\deque\\queuestack(24511).py","tests":[{"id":1749528773517,"input":"4\n0 1 1 0\n1 2 3 4\n3\n2 4 7","output":"4 1 2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\ms0\\Desktop\\git_ms\\algorithms\\백준\\deque\\queuestack(24511).py","group":"local","local":true}
