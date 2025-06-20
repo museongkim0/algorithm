@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7d21ab03-fe87-4283-ac79-467e08a22c99" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Stack/LinkedList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Stack/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Stack/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Stack/Stack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/Print.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/src/Print.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/src/PrintAB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/src/PrintAdd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/src/PrintAddString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/src/PrintChangeAa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/src/PrintDivideEvenOdd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/src/PrintSpecialChar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/src/PrintString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/src/PrintStringFor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/Print/src/PrintTurn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../문제풀이/문제풀이.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/.cph/.list.py_a67af6768dafbb7f722278e39a5f391e.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/.cph/.time1.py_00038906fe489382ff91bce42b9386d3.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/deque/.cph/.deque2(28279).py_1b00ed8da7a351f207af559d0deea655.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/deque/.cph/.queuestack(24511).py_86dbbf9a557bf258d08abda3023eee1c.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/deque/.cph/.풍선(2346).py_ba3eac9c8b3edc464a246d2092601c29.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/deque/deque2(28279).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/deque/queuestack(24511).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/deque/풍선(2346).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/list.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/queue/.cph/.card2(2164).py_5908fc328f03654061f91723e20c18ec.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/queue/.cph/.queue2(18258).py_1488bb82ca97a11b0a1ced110d89aac5.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/queue/.cph/.queuestack(24511).py_c329c6ea55471d4f61b5ba88dfe30b63.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/queue/.cph/.요세푸스(11866).py_75a17e99853ccffdbfda8cdd4a173153.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/queue/card2(2164).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/queue/queue2(18258).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/queue/요세푸스(11866).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/stack/.cph/.balance.py_4a101ea33e0241c33f43b6ff67db8e9d.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/stack/.cph/.dokky.py_3f889b7338b841be3e0549b0acf523d8.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/stack/.cph/.parentheses.py_5d7a6b1bdce05d7c761fec38fc98999c.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/stack/.cph/.stack2.py_cedafd7265db0053c2def32abaa6603b.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/stack/.cph/.zero.py_5c11c9fab633a00865e101d453061ae3.prob" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/stack/balance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/stack/dokky.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/stack/parentheses.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/stack/stack2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/stack/zero.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../백준/time_complexity.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/.idea/알고리즘.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/Sort.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/src/Sort.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/src/SortAlgorithms/BubbleSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/src/SortAlgorithms/InsertSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/src/SortAlgorithms/QuickSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/src/SortAlgorithms/SelectionSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/Sort/src/SortAlgorithms/ShellSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/out/production/선형자료구조(Stack,Queue,Dequeue)/LinkedList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/out/production/선형자료구조(Stack,Queue,Dequeue)/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/out/production/선형자료구조(Stack,Queue,Dequeue)/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/out/production/선형자료구조(Stack,Queue,Dequeue)/Queue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/out/production/선형자료구조(Stack,Queue,Dequeue)/Stack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/Stack.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/src/main/java/org/example/queue/AdtQueue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/src/main/java/org/example/queue/ListBasedQueue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/src/main/java/org/example/stack/AdtStack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/src/main/java/org/example/stack/ListBasedStack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/src/test/java/QueueTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/smoketest/src/test/java/StackTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/src/LinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/src/Node.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/src/Queue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/src/Stack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/선형자료구조(Stack,Queue,Dequeue)/선형자료구조(Stack,Queue,Dequeue).iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../알고리즘/알고리즘.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/graph.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/선형자료구조/deque.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/선형자료구조/double_linked_list.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/선형자료구조/linked_list.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/선형자료구조/queue.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/선형자료구조/smoketest/DequeTest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/선형자료구조/smoketest/linked_list.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/선형자료구조/smoketest/queueTest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/선형자료구조/smoketest/stackTest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/선형자료구조/stack.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/선형자료구조/tree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/탐색/bfs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../파이썬/자료구조/탐색/binarySearch.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2yGND8SXppW4rcz94CEJLuIhi9R" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ms0/Desktop/git_ms/algorithms/자료구조/Java/smoketest",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="선형자료구조(Stack,Queue,Dequeue)" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d21ab03-fe87-4283-ac79-467e08a22c99" name="Changes" comment="" />
+      <created>1749456827288</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749456827288</updated>
+      <workItem from="1749456828511" duration="2610000" />
+      <workItem from="1749459903503" duration="618000" />
+      <workItem from="1749630157570" duration="1269000" />
+      <workItem from="1750381804151" duration="5403000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
