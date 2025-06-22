@@ -1,6 +1,7 @@
 import random
 import unittest
 from collections import deque
+from Implement.LinkedListDeque import LinkedListDeque
 
 
 class TestDeque(unittest.TestCase):
@@ -58,13 +59,13 @@ class TestDeque(unittest.TestCase):
                 # 7. empty: 비어있는지 비교
                 elif op == "empty":
                     ref_val = (len(REFERENCE_DEQUE) == 0)
-                    test_val = TEST_DEQUE.empty()
+                    test_val = TEST_DEQUE.is_empty()
                     self.assertEqual(ref_val, test_val)
 
                 # 8. size: 크기 비교
                 elif op == "size":
                     ref_val = len(REFERENCE_DEQUE)
-                    test_val = TEST_DEQUE.size()
+                    test_val = TEST_DEQUE.get_size()
                     self.assertEqual(ref_val, test_val)
 
             except Exception as e:

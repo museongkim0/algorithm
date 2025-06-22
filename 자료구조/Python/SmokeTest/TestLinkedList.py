@@ -1,13 +1,15 @@
 import random
 import unittest
 from Implement.LinkedList import LinkedList
+from Implement.DoubleLinkedList import DoubleLinkedList
 
 
 class TestLinkedList(unittest.TestCase):
     def test_random_operations(self):
         num_operations = 100000  # 연산 횟수 (조정 가능)
         referebce_list = []  # 표준 파이썬 리스트 (리스트로 사용)
-        test_linked_list = LinkedList()  # 테스트 대상 링크드 리스트
+        # test_linked_list = LinkedList()  # 테스트 대상 링크드 리스트
+        test_linked_list = DoubleLinkedList()
 
         operations = ["append", "prepend", "search", "insert", "replace", "erase"]
 
@@ -41,7 +43,7 @@ class TestLinkedList(unittest.TestCase):
                     index = random.randint(0, len(referebce_list) - 1)
                     ref_val = referebce_list[index]
                     test_val = test_linked_list.search(index)
-                    self.assertEqual(ref_val, test_val.data)
+                    self.assertEqual(ref_val, test_val)
 
                 # 4. insert: 값 비교
                 elif op == "insert":

@@ -13,32 +13,16 @@ class LinkedListDeque(ADTDeque[T]):
         self.list.prepend(item)
 
     def pop(self) -> Optional[T]:
-        answer = self.list.eraseFirst()
-        if not answer:
-            return '-1'
-        else:
-            return answer
+        return self.list.erase_last()
 
     def popleft(self) -> Optional[T]:
-        answer = self.list.eraseLast()
-        if not answer:
-            return '-1'
-        else:
-            return answer
+        return self.list.erase(0)
 
     def peek_front(self) -> Optional[T]:
-        answer = self.list.findFirst()
-        if not answer:
-            return '-1'
-        else:
-            return answer
+        return self.list.search(0)
 
     def peek_back(self) -> Optional[T]:
-        answer = self.list.findLast()
-        if not answer:
-            return '-1'
-        else:
-            return answer
+        return self.list.search_last()
 
     def is_empty(self) -> bool:
         if self.list.size == 0:
@@ -53,21 +37,21 @@ class LinkedListDeque(ADTDeque[T]):
         return self.list.display()
 
 
-deque = LinkedListDeque()
-print(deque.popleft())
-print(deque.is_empty())
-print(deque.get_size())
-deque.append(1)
-deque.appendleft(3)
-deque.append(5)
-deque.appendleft(7)
-print(deque.display())
-print(deque.pop())
-print(deque.display())
-print(deque.popleft())
-print(deque.display())
-print(deque.peek_front())
-print(deque.peek_back())
-print(deque.popleft())
-print(deque.is_empty())
-print(deque.get_size())
+# deque = LinkedListDeque()
+# print(deque.popleft())
+# print(deque.is_empty())
+# print(deque.get_size())
+# deque.append(1)
+# deque.appendleft(3)
+# deque.append(5)
+# deque.appendleft(7)
+# print(deque.display())
+# print(deque.pop())
+# print(deque.display())
+# print(deque.popleft())
+# print(deque.display())
+# print(deque.peek_front())
+# print(deque.peek_back())
+# print(deque.popleft())
+# print(deque.is_empty())
+# print(deque.get_size())
