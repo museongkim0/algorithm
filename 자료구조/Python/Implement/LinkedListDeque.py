@@ -1,6 +1,8 @@
-from ADT.ADTDeque import ADTDeque, T
+from ADT.ADTDeque import ADTDeque
 from Implement.DoubleLinkedList import DoubleLinkedList
-from typing import Optional
+from typing import TypeVar, Optional
+
+T = TypeVar('T')
 
 class LinkedListDeque(ADTDeque[T]):
     def __init__(self):

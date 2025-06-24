@@ -1,6 +1,8 @@
-from ADT.ADTQueue import ADTQueue, T
+from ADT.ADTQueue import ADTQueue
 from Implement.LinkedList import LinkedList
-from typing import Optional
+from typing import TypeVar, Optional
+
+T = TypeVar('T')
 
 class LinkedListQueue(ADTQueue[T]):
     def __init__(self):
@@ -13,23 +15,20 @@ class LinkedListQueue(ADTQueue[T]):
         return self.list.erase(0)
 
     def front(self) -> Optional[T]:
-        if not self.list.search(0):
+        if self.list.search(0) == None:
             return None
-        return self.list.search(0).data
+        return self.list.search(0)
 
     def back(self) -> Optional[T]:
-        if not self.list.search(self.list.size - 1):
+        if self.list.search(self.list.size - 1) == None:
             return None
-        return self.list.search(self.list.size - 1).data
+        return self.list.search(self.list.size - 1)
 
     def get_size(self) -> int:
         return self.list.size
 
     def is_empty(self) -> bool:
-        if self.list.size == 0:
-            return True
-        else:
-            return False
+        return self.list.size == 0
 
     def display(self):
         return self.list.display()

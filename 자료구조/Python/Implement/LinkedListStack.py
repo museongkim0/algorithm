@@ -1,6 +1,8 @@
-from ADT.ADTStack import ADTStack, T
+from ADT.ADTStack import ADTStack
 from Implement.LinkedList import LinkedList
-from typing import Optional
+from typing import TypeVar, Optional
+
+T = TypeVar('T')
 
 # TODO: 파스칼 케이스로 변경 StackLinked
 class LinkedListStack(ADTStack[T]):
@@ -15,9 +17,9 @@ class LinkedListStack(ADTStack[T]):
         return self.list.erase(0)
 
     def top(self) -> Optional[T]:
-        if not self.list.search(0):
+        if self.list.search(0) == None:
             return None
-        return self.list.search(0).data
+        return self.list.search(0)
 
     def get_size(self) -> int:
         return self.list.size

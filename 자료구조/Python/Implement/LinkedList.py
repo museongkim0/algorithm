@@ -1,7 +1,9 @@
-from typing import Optional
+from typing import TypeVar, Optional
 
-from ADT.ADTLinkedList import ADTLinkedList, T
+from ADT.ADTLinkedList import ADTLinkedList
 # T에 대한 부분 질문하기
+# 타입 변수 정의
+T = TypeVar('T')
 
 class LinkedList(ADTLinkedList[T]):
     class Node:

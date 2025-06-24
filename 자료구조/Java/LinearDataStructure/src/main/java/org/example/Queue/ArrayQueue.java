@@ -3,6 +3,7 @@ package org.example.Queue;
 import java.util.Arrays;
 import java.util.Optional;
 
+//TODO: size 변수 없애고, front/back 이용하여 size 함수 만들기
 public class ArrayQueue<T> implements AdtQueue<T> {
     private int front;
     private int back;
@@ -89,9 +90,14 @@ public class ArrayQueue<T> implements AdtQueue<T> {
         return this.size == 0;
     }
 
+
     @Override
     public int getSize(){
         return this.size;
+//        if (this.back < this.front){
+//            return this.arr.length - this.front + this.back;
+//        }
+//        return this.back - this.front;
     }
 
     public void display(){

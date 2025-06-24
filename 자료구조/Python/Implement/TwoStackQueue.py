@@ -1,7 +1,10 @@
-from ADT.ADTQueue import ADTQueue, T
+from ADT.ADTQueue import ADTQueue
 from Implement.LinkedListStack import LinkedListStack
-from typing import Optional
+from typing import TypeVar, Optional
 
+T = TypeVar('T')
+
+# TODO: 리스트가 비었을 때 옮기는 부분 추상화 하기
 class TwoStackQueue(ADTQueue[T]):
     def __init__(self):
         self.list1 = LinkedListStack()
@@ -32,10 +35,7 @@ class TwoStackQueue(ADTQueue[T]):
         return self.list1.get_size() + self.list2.get_size()
 
     def is_empty(self) -> bool:
-        if self.list1.is_empty() & self.list2.is_empty():
-            return True
-        else:
-            return False
+        return self.list1.is_empty() and self.list2.is_empty()
 
     def display(self):
         if self.list1.is_empty():
