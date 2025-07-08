@@ -1,8 +1,6 @@
 import random
 import unittest
-from Implement.LinkedList import LinkedList
-from Implement.DoubleLinkedList import DoubleLinkedList
-
+from Implement.LinkedList import LinkedList, DoubleLinkedList
 
 def test_random_operations(tester, linked_list):
     print("linked_list: ", linked_list)

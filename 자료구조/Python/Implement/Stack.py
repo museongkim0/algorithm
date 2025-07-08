@@ -17,7 +17,7 @@ class LinkedListStack(ADTStack[T]):
         return self.list.erase(0)
 
     def top(self) -> Optional[T]:
-        if self.list.search(0) == None:
+        if self.list.search(0) is None:
             return None
         return self.list.search(0)
 
@@ -26,10 +26,7 @@ class LinkedListStack(ADTStack[T]):
 
     # TODO: return으로 변경
     def is_empty(self) -> bool:
-        if self.list.size == 0:
-            return True
-        else:
-            return False
+        return self.list.size == 0
 
     def display(self):
         return self.list.display()

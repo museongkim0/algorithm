@@ -1,6 +1,6 @@
 import random
 import unittest
-from Implement.LinkedListStack import LinkedListStack
+from Implement.Stack import LinkedListStack
 
 
 class TestStack(unittest.TestCase):

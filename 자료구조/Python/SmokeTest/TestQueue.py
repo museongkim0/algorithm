@@ -1,8 +1,6 @@
 import random
 import unittest
-from Implement.LinkedListQueue import LinkedListQueue
-from Implement.TwoStackQueue import TwoStackQueue
-
+from Implement.Queue import LinkedListQueue, TwoStackQueue
 
 def test_random_operations(tester, queue):
     print(queue)

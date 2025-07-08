@@ -1,5 +1,5 @@
 from ADT.ADTDeque import ADTDeque
-from Implement.DoubleLinkedList import DoubleLinkedList
+from Implement.LinkedList import DoubleLinkedList
 from typing import TypeVar, Optional
 
 T = TypeVar('T')

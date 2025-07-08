@@ -1,7 +1,7 @@
 import random
 import unittest
 from collections import deque
-from Implement.LinkedListDeque import LinkedListDeque
+from Implement.Deque import LinkedListDeque
 
 
 class TestDeque(unittest.TestCase):

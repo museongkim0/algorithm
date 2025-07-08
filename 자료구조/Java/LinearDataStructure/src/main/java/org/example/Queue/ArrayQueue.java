@@ -94,10 +94,7 @@ public class ArrayQueue<T> implements AdtQueue<T> {
     @Override
     public int getSize(){
         return this.size;
-//        if (this.back < this.front){
-//            return this.arr.length - this.front + this.back;
-//        }
-//        return this.back - this.front;
+
     }
 
     public void display(){
