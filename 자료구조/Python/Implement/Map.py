@@ -1,6 +1,7 @@
 from ADT.ADTMap import ADTMap
 from Implement.LinkedList import LinkedListTuple
-from Implement.BinarySearchTree import BinarySearchTreeTuple
+from Implement.BinarySearchTree import BinarySearchTree
+from Implement.Comparable import TupleKey
 from typing import TypeVar, Optional
 
 K = TypeVar('K')
@@ -43,62 +44,56 @@ class LinkedListMap(ADTMap[K,V]):
     def display(self):
         return self.list.display()
 
-# TODO: list -> tree로 변경
+# TODO: list -> tree로 변경 - done
 # TODO: Cursur를 두면 효과적
 class BinaryTreeMap(ADTMap[K,V]):
     def __init__(self):
-        self.tree = BinarySearchTreeTuple()
+        self.tree = BinarySearchTree[TupleKey[K, V]]()
 
     def insert(self, key: K, val: V):
-        if self.tree.find(key) is None:
-            self.tree.insert(key, val)
+        if self.tree.find(TupleKey((key, val))) is None:
+            self.tree.insert(TupleKey((key, val)))
             return True
         else:
-            self.tree.insert(key, val)
+            self.tree.insert(TupleKey((key, val)))
             return False
 
-    # TODO: 그냥 True로 변경
+    # TODO: 그냥 True로 변경 - done
     def delete(self, key: K) -> bool:
-        if self.tree.find(key) is None:
+        if self.tree.find(TupleKey((key, 0))) is None:
             return False
+        self.tree.erase(TupleKey((key, 0)))
         return True
 
-    # TODO: find 결과 담아 놓으면 두번 필요x
+    # TODO: find 결과 담아 놓으면 두번 필요x - done
     def get(self, key: K) -> Optional[V]:
-        val = self.tree.find(key)
+        val = self.tree.find(TupleKey((key, 0)))
         if val is None:
             return None
         return val.get_data()[1]
 
     def is_empty(self) -> bool:
-        return self.tree.size() == 0
+        return self.tree.get_size() == 0
 
     def get_size(self) -> int:
-        return self.tree.size()
+        return self.tree.get_size()
 
     def display(self):
         return self.tree.display()
 
 # test_map = LinkedListMap()
-# test_map = BinaryTreeMap()
+# test_map = BinaryTreeMap[int, int]()
 # print(test_map.get_size())
 # print(test_map.is_empty())
 # print(test_map.insert(1,1))
-# test_map.display()
 # print(test_map.insert(5,10))
-# test_map.display()
 # print(test_map.insert(3,20))
-# test_map.display()
 # print(test_map.insert(7,60))
-# test_map.display()
 # print(test_map.insert(5,30))
-# test_map.display()
 # print(test_map.get(5))
 # print(test_map.get(10))
 # print(test_map.delete(5))
-# test_map.display()
 # print(test_map.delete(10))
-# test_map.display()
 # print(test_map.get_size())
 # print(test_map.is_empty())
 # print(test_map.insert(2,100))
@@ -107,16 +102,7 @@ class BinaryTreeMap(ADTMap[K,V]):
 # print(test_map.display())
 # print(test_map.insert(100,20))
 # print(test_map.display())
-
-# import random
-# test_dict = {}
+# print(test_map.get_size())
 #
-# test_dict[1] = 10
-# test_dict[5] = 20
-# test_dict[3] = 30
-# print(sorted(list(test_dict.items())))
-# print(test_dict.pop(5))
-# print(list(test_dict.items()))
-# print(len(test_dict))
-#
-# print(random.choice(list(test_dict.keys())))
+# test_dict = {(1,1), (2,100), (3,30), (5,30), (7,60), (100,20)}
+# print(sorted(list(test_dict)) == test_map.display())
