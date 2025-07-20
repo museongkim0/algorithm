@@ -307,6 +307,7 @@ class LinkedListTuple(ADTLinkedListTuple[K,V]):
 
     def __init__(self):
         self.head = None
+        self.tail = None
         self.size = 0
 
     def append(self, key: K, val: V) -> None:

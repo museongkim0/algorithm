@@ -8,26 +8,27 @@ V = TypeVar('V')
 
 class LinkedListMap(ADTMap[K,V]):
     def __init__(self):
-        self.list = LinkedListTuple[int, int]()
+        self.list = LinkedListTuple[K, V]()
 
+    # TODO: lower bound, upper bound / return을 optional로 하지 않고 index로 반환하는걸로 하는게 좋음
     def insert(self, key: K, val: V):
-        get_index = self.list.search_insert_index(key)
-        if get_index is None:
+        index = self.list.search_insert_index(key)
+        if index is None:
             self.list.append(key, val)
             return True
-        if get_index[1] == key:
-            self.list.replace(get_index[0], key, val)
+        if index[1] == key:
+            self.list.replace(index[0], key, val)
             return False
         else:
-            self.list.insert(get_index[0], key, val)
+            self.list.insert(index[0], key, val)
             return True
 
 
     def delete(self, key: K) -> bool:
-        get_index = self.list.search_index(key)
-        if get_index is None:
+        index = self.list.search_index(key)
+        if index is None:
             return False
-        self.list.erase(get_index)
+        self.list.erase(index)
         return True
 
     def get(self, key: K) -> Optional[V]:
@@ -42,37 +43,41 @@ class LinkedListMap(ADTMap[K,V]):
     def display(self):
         return self.list.display()
 
+# TODO: list -> tree로 변경
+# TODO: Cursur를 두면 효과적
 class BinaryTreeMap(ADTMap[K,V]):
     def __init__(self):
-        self.list = BinarySearchTreeTuple()
+        self.tree = BinarySearchTreeTuple()
 
     def insert(self, key: K, val: V):
-        if self.list.find(key) is None:
-            self.list.insert(key, val)
+        if self.tree.find(key) is None:
+            self.tree.insert(key, val)
             return True
         else:
-            self.list.insert(key, val)
+            self.tree.insert(key, val)
             return False
 
-
+    # TODO: 그냥 True로 변경
     def delete(self, key: K) -> bool:
-        if self.list.find(key) is None:
+        if self.tree.find(key) is None:
             return False
-        return self.list.erase(key)[0] == key
+        return True
 
+    # TODO: find 결과 담아 놓으면 두번 필요x
     def get(self, key: K) -> Optional[V]:
-        if self.list.find(key) is None:
+        val = self.tree.find(key)
+        if val is None:
             return None
-        return self.list.find(key).get_data()[1]
+        return val.get_data()[1]
 
     def is_empty(self) -> bool:
-        return self.list.size() == 0
+        return self.tree.size() == 0
 
     def get_size(self) -> int:
-        return self.list.size()
+        return self.tree.size()
 
     def display(self):
-        return self.list.display()
+        return self.tree.display()
 
 # test_map = LinkedListMap()
 # test_map = BinaryTreeMap()
