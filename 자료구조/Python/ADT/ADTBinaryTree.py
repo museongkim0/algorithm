@@ -78,7 +78,7 @@ class ADTBinaryTree(ABC, Generic[T]):
         # 주어진 parent_node의 오른쪽 자식으로 새 노드를 삽입
         pass
 
-    # TODO: Generic 다시 검토
+    # TODO: Generic 다시 검토 -> Done
     @abstractmethod
     def remove_node(self, node: Node[T]) -> Optional[T]:
         # 특정 노드를 트리에서 제거
@@ -94,7 +94,7 @@ class ADTBinaryTree(ABC, Generic[T]):
         # 트리의 깊이(또는 높이)를 반환 / 루트 노드부터 가장 깊은 리프 노드까지의 최대 간선 수를 의미
         pass
 
-    # TODO: 반환에 왜 optional 인지 고민 필요
+    # TODO: 반환에 왜 optional 인지 고민 필요 -> Done
     @abstractmethod
     def is_leaf(self, node: Node[T]) -> bool:
         # 특정 노드가 리프 노드(자식 노드가 없는 노드)인지 여부를 반환

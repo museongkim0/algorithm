@@ -284,7 +284,6 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
         else:
             return 1+right_height
 
-    # TODO:
     def is_leaf(self, index: int) -> bool:
         # 특정 노드가 리프 노드(자식 노드가 없는 노드)인지 여부를 반환
         if self.is_empty() or self.list[index] is None:
