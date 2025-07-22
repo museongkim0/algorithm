@@ -191,11 +191,11 @@ class PointerBinaryTree(ADTBinaryTree[T]):
         self.__pre_order(node.right, answer)
 
     def display(self):
-        answer = []
-        self.__pre_order(self.root, answer)
-        # self.__in_order(self.root, answer)
-        return answer
-        # return self.print_subtree(self.root)
+        # answer = []
+        # self.__pre_order(self.root, answer)
+        # # self.__in_order(self.root, answer)
+        # return answer
+        return self.print_subtree(self.root)
 
     # 서브트리를 (간단하게) 출력하는 함수 (재귀)
     def print_subtree(self, node: Optional[Node], prefix: str = "", is_left: bool = True):
