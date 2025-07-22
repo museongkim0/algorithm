@@ -41,6 +41,10 @@ class PointerBinaryTree(ADTBinaryTree[T]):
         self.size = 0
 
     def set_root(self, data: T) -> None:
+        if data is None:
+            self.root = None
+            self.size = 0
+            return
         self.root = self.Node(data)
         self.size += 1
 
@@ -179,10 +183,19 @@ class PointerBinaryTree(ADTBinaryTree[T]):
         answer.append(node.data)
         self.__in_order(node.right, answer)
 
+    def __pre_order(self, node: T, answer: []):
+        if node is None:
+            return
+        answer.append(node.data)
+        self.__pre_order(node.left, answer)
+        self.__pre_order(node.right, answer)
+
     def display(self):
         answer = []
+        # self.__pre_order(self.root, answer)
         self.__in_order(self.root, answer)
         return answer
+        # return self.print_subtree(self.root)
 
     # 서브트리를 (간단하게) 출력하는 함수 (재귀)
     def print_subtree(self, node: Optional[Node], prefix: str = "", is_left: bool = True):

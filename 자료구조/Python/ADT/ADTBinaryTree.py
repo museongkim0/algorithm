@@ -99,3 +99,6 @@ class ADTBinaryTree(ABC, Generic[T]):
     def is_leaf(self, node: Node[T]) -> bool:
         # 특정 노드가 리프 노드(자식 노드가 없는 노드)인지 여부를 반환
         pass
+
+    def display(self) -> None:
+        pass

@@ -51,12 +51,10 @@ class BinaryTreeMap(ADTMap[K,V]):
         self.tree = BinarySearchTree[TupleKey[K, V]]()
 
     def insert(self, key: K, val: V):
+        self.tree.insert(TupleKey((key, val)))
         if self.tree.find(TupleKey((key, val))) is None:
-            self.tree.insert(TupleKey((key, val)))
             return True
-        else:
-            self.tree.insert(TupleKey((key, val)))
-            return False
+        return False
 
     # TODO: 그냥 True로 변경 - done
     def delete(self, key: K) -> bool:
