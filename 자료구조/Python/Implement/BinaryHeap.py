@@ -10,34 +10,70 @@ class BinaryHeap(ADTBinaryHeap[T]):
         super().__init__(PointerBinaryTree[T]())
         self.list = deque()
 
+    def __update_list(self):
+        root = self.tree.get_root()
+        self.list = deque()
+        if root is None:
+            return
+        level = 1
+        self.list.append([level, [root]])
+        while True:
+            if self.tree.is_leaf(self.list[level-1][1][0]):
+                return
+            level += 1
+            self.list.append([level, []])
+            for i in self.list[level-2][1]:
+                if i.get_left() is None:
+                    return
+                self.list[level-1][1].append(i.get_left())
+                if i.get_right() is not None:
+                    self.list[level-1][1].append(i.get_right())
+                else:
+                    return
+
+
     def push(self, data: T) -> None:
         # 새로운 값 삽입
         if self.tree.is_empty():
             self.tree.set_root(data)
-            self.list.append(self.tree.get_root())
+            self.list.append([1, [self.tree.get_root()]])
             return
-        while True:
-            node = self.list[0]
-            if self.tree.is_leaf(node):
-                self.__insert_node(node, data, "left")
-                return
-            if self.tree.get_left_child(node) is not None and self.tree.get_right_child(node) is None:
-                self.__insert_node(node, data, "right")
-                return
-            self.list.popleft()
-
-    def __insert_node(self, node: Optional['Node[T]'], data: T, mode: str) -> None:
-        if mode == "right":
-            self.tree.insert_right_child(node, data)
-            new_node = self.tree.get_right_child(node)
-            self.__percolate_up(new_node)
-            self.list.append(new_node)
-            return
-        self.tree.insert_left_child(node, data)
-        new_node = self.tree.get_left_child(node)
+        last_level_list = self.list[-1]
+        if len(last_level_list[1]) == 2**(last_level_list[0]-1):
+            self.list.append([last_level_list[0]+1, []])
+            last_level_list = self.list[-1]
+        level = last_level_list[0]
+        index = len(last_level_list[1])
+        parent_node = self.list[level - 2][1][index // 2]
+        if index % 2 == 0:
+            self.tree.insert_left_child(parent_node, data)
+            new_node = self.tree.get_left_child(parent_node)
+        else:
+            self.tree.insert_right_child(parent_node, data)
+            new_node = self.tree.get_right_child(parent_node)
         self.__percolate_up(new_node)
-        self.list.append(new_node)
-        return
+        self.list[-1][1].append(new_node)
+
+            # if self.tree.is_leaf(node):
+            #     self.__insert_node(node, data, "left")
+            #     return
+            # if self.tree.get_left_child(node) is not None and self.tree.get_right_child(node) is None:
+            #     self.__insert_node(node, data, "right")
+            #     return
+            # self.list.popleft()
+
+    # def __insert_node(self, node: Optional['Node[T]'], data: T, mode: str) -> None:
+    #     if mode == "right":
+    #         self.tree.insert_right_child(node, data)
+    #         new_node = self.tree.get_right_child(node)
+    #         self.__percolate_up(new_node)
+    #         self.list.append(new_node)
+    #         return
+    #     self.tree.insert_left_child(node, data)
+    #     new_node = self.tree.get_left_child(node)
+    #     self.__percolate_up(new_node)
+    #     self.list.append(new_node)
+    #     return
 
     def __percolate_up(self, node: Optional['Node[T]']) -> None:
         parent_node = node.get_parent()
@@ -51,34 +87,39 @@ class BinaryHeap(ADTBinaryHeap[T]):
             parent_node = node.get_parent()
 
     def __percolate_down(self, node: Optional['Node[T]']) -> None:
-        if node is None:
-            return
-        left_child_node = self.tree.get_left_child(node)
-        right_child_node = self.tree.get_right_child(node)
         data = self.tree.get_data(node)
-        if left_child_node is not None:
-            left_child_data = self.tree.get_data(left_child_node)
+        left_child_node = self.tree.get_left_child(node)
+        if left_child_node is None:
+            return
+        left_child_data = self.tree.get_data(left_child_node)
+        right_child_node = self.tree.get_right_child(node)
+        if right_child_node is None:
             if left_child_data < data:
                 left_child_node.set_data(data)
                 node.set_data(left_child_data)
-                self.__percolate_down(left_child_node)
-                return
-        if right_child_node is not None:
-            right_child_data = self.tree.get_data(right_child_node)
-            if right_child_data < data:
-                right_child_node.set_data(data)
-                node.set_data(right_child_data)
-                self.__percolate_down(right_child_node)
-                return
+            return
+        right_child_data = self.tree.get_data(right_child_node)
+        if left_child_data < data and left_child_data <= right_child_data:
+            left_child_node.set_data(data)
+            node.set_data(left_child_data)
+            self.__percolate_down(left_child_node)
+            return
+        elif right_child_data < data and right_child_data <= left_child_data:
+            right_child_node.set_data(data)
+            node.set_data(right_child_data)
+            self.__percolate_down(right_child_node)
+            return
         return
 
     def pop(self) -> Optional[T]:
         # 최소값/최대값 제거 후 반환
-        pop_node = self.__find_last()
+        pop_node = self.list[-1][1][-1]
+        print(pop_node.get_data())
         root_node = self.tree.get_root()
         pop_val = root_node.get_data()
         if pop_node is root_node:
             self.tree.set_root(None)
+            self.list.pop()
             return pop_val
         root_node.set_data(pop_node.get_data())
         parent_node = pop_node.get_parent()
@@ -87,6 +128,9 @@ class BinaryHeap(ADTBinaryHeap[T]):
         elif self.tree.get_right_child(parent_node) is pop_node:
             parent_node.set_right(None)
         self.__percolate_down(root_node)
+        self.list[-1][1].pop()
+        if len(self.list[-1][1]) == 0:
+            self.list.pop()
         return pop_val
 
     def __find_last(self) -> Node[T]:
@@ -127,7 +171,6 @@ class BinaryHeap(ADTBinaryHeap[T]):
 # heap = BinaryHeap[int]()
 # print(heap.is_empty())
 # print(heap.get_size())
-# print(heap.display())
 # heap.push(303)
 # print(heap.display())
 # heap.push(159)

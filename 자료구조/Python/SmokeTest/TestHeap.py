@@ -4,7 +4,7 @@ from Implement.BinaryHeap import BinaryHeap
 import heapq
 
 def test_random_operations(tester, input_heap):
-    num_operations = 1000  # 연산 횟수 (조정 가능)
+    num_operations = 100000  # 연산 횟수 (조정 가능)
     reference_heap = [] # 표준 파이썬 힙
     heapq.heapify(reference_heap)
     test_heap = input_heap  # 테스트 대상 큐
@@ -12,10 +12,7 @@ def test_random_operations(tester, input_heap):
     operations = ["push", "pop", "peek", "empty", "size"]
 
     for _ in range(num_operations):
-        print(reference_heap)
-        print(sorted(test_heap.display()))
         op = random.choice(operations)
-        print(op)
 
         # 큐가 비었을 때 dequeue/peek 방지
         if op in ("pop", "peek") and len(reference_heap) == 0:

@@ -192,8 +192,8 @@ class PointerBinaryTree(ADTBinaryTree[T]):
 
     def display(self):
         answer = []
-        # self.__pre_order(self.root, answer)
-        self.__in_order(self.root, answer)
+        self.__pre_order(self.root, answer)
+        # self.__in_order(self.root, answer)
         return answer
         # return self.print_subtree(self.root)
 
