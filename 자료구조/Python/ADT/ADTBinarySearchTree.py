@@ -1,9 +1,13 @@
 from abc import ABC, abstractmethod
 from typing import Generic, TypeVar, Optional
+from ADT.ADTBinaryTree import ADTBinaryTree
 
 T = TypeVar('T')
 
 class ADTBinarySearchTree(ABC, Generic[T]):
+    def __init__(self, tree: ADTBinaryTree[T]):
+        self.tree = tree
+
     @abstractmethod
     def front(self) -> Optional[T]:
         # 트리의 최소값 반환

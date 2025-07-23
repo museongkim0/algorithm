@@ -1,6 +1,6 @@
 from typing import TypeVar, Optional
 from ADT.ADTBinaryHeap import ADTBinaryHeap
-from Implement.BinaryTree import PointerBinaryTree, Node
+from Implement.BinaryTree import PointerBinaryTree, Node, ArrayBinaryTree
 from collections import deque
 from Implement.Comparable import TupleKey
 
@@ -9,6 +9,7 @@ T = TypeVar('T')
 class BinaryHeap(ADTBinaryHeap[T]):
     def __init__(self):
         super().__init__(PointerBinaryTree[T]())
+        # super().__init__(ArrayBinaryTree[T]())
         self.list = deque()
 
     def push(self, data: T) -> None:

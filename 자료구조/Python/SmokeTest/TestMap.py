@@ -12,6 +12,9 @@ def test_random_operations(tester, input_map):
 
     for _ in range(num_operations):
         op = random.choice(operations)
+        # print("operation:", op)
+        # print(list(reference_map.items()))
+        # print(test_map.display())
 
         # 큐가 비었을 때 dequeue/peek 방지
         if op in ("delete", "get") and len(reference_map) == 0:

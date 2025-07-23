@@ -1,13 +1,14 @@
 from typing import TypeVar, Optional
 from ADT.ADTBinarySearchTree import ADTBinarySearchTree
-from Implement.BinaryTree import PointerBinaryTree, Node
+from Implement.BinaryTree import PointerBinaryTree, ArrayBinaryTree
 from Implement.Comparable import TupleKey
 
 T = TypeVar('T')
 
 class BinarySearchTree(ADTBinarySearchTree[T]):
     def __init__(self):
-        self.tree = PointerBinaryTree[T]()
+        super().__init__(PointerBinaryTree[T]())
+        # super().__init__(ArrayBinaryTree[T]())
 
     def _get_edge_node(self, mode: str) -> Optional[T]:
         node = self.tree.get_root()
@@ -38,15 +39,15 @@ class BinarySearchTree(ADTBinarySearchTree[T]):
         root = self.tree.get_root()
         return self.tree.get_data(self.__traverse(root, data, "find"))
 
-    def __find_node(self, node:T, data: T) -> Optional[T]:
-        if node is None:
-            return None
-        if self.tree.get_data(node) == data:
-            return node
-        if self.tree.get_data(node) < data:
-            return self.__find_node(self.tree.get_right_child(node), data)
-        else:
-            return self.__find_node(self.tree.get_left_child(node), data)
+    # def __find_node(self, node:T, data: T) -> Optional[T]:
+    #     if node is None:
+    #         return None
+    #     if self.tree.get_data(node) == data:
+    #         return node
+    #     if self.tree.get_data(node) < data:
+    #         return self.__find_node(self.tree.get_right_child(node), data)
+    #     else:
+    #         return self.__find_node(self.tree.get_left_child(node), data)
 
     def insert(self, data: T) -> None:
         if self.tree.is_empty():
@@ -54,7 +55,7 @@ class BinarySearchTree(ADTBinarySearchTree[T]):
             return
         self.__traverse(self.tree.get_root(), data, "insert")
 
-    def __traverse(self, node: Optional['Node[T]'], data: T, mode: str) -> Optional['Node[T]']:
+    def __traverse(self, node: Optional['PointerBinaryTree.Node[T]'], data: T, mode: str) -> Optional['PointerBinaryTree.Node[T]']:
         if node is None and mode == "find":
             return None
         node_data = self.tree.get_data(node)
@@ -124,6 +125,7 @@ class BinarySearchTree(ADTBinarySearchTree[T]):
 # print(bst.find(TupleKey((70, 0))))
 # print(bst.display())
 # print(bst.get_size())
+# print(bst.find(TupleKey((32, 0))))
 
 # K = TypeVar('K')
 # V = TypeVar('V')
