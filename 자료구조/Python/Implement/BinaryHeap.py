@@ -6,11 +6,16 @@ from Implement.Comparable import TupleKey
 
 T = TypeVar('T')
 
+
 class BinaryHeap(ADTBinaryHeap[T]):
     def __init__(self):
-        super().__init__(PointerBinaryTree[T]())
-        # super().__init__(ArrayBinaryTree[T]())
         self.list = deque()
+        # self.tree = PointerBinaryTree()
+        # TODO: get_last_node, insert_last 등 구현
+        self.tree = ArrayBinaryTree[T]()
+
+    # def get_tree(self):
+    #     return self.tree
 
     def push(self, data: T) -> None:
         # 새로운 값 삽입
@@ -94,14 +99,6 @@ class BinaryHeap(ADTBinaryHeap[T]):
     def peek(self) -> Optional[T]:
         # 최소값/최대값 반환
         return self.tree.get_root().get_data()
-
-    def get_size(self) -> int:
-        # 사이즈 반환
-        return self.tree.get_size()
-
-    def is_empty(self) -> bool:
-        # 비어 있는지 여부 반환
-        return self.tree.is_empty()
 
     def display(self):
         return self.tree.display()

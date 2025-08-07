@@ -37,7 +37,11 @@ class Node(ABC, Generic[T]):
         pass
 
 # TODO: 노드도 인터페이스로 생성 가능
+# TODO: 노드를 추상화하였으므로, 추상화에서 노드로 구현 가능
 class ADTBinaryTree(ABC, Generic[T]):
+    # 고급 언어 / associated type
+    # type NodeInner : Node[T]
+
     @abstractmethod
     def get_root(self) -> Optional[Node[T]]:
         # 트리의 루트 노드를 반환
@@ -51,12 +55,12 @@ class ADTBinaryTree(ABC, Generic[T]):
     @abstractmethod
     def get_data(self, node: Node[T]) -> Optional[T]:
         # 특정 노드에 저장된 데이터를 반환
-        pass
+        return node.get_data()
 
     @abstractmethod
     def get_left_child(self, node: Node[T]) -> Optional[Node[T]]:
         # 특정 노드의 왼쪽 자식 노드를 반환
-        pass
+        return node.get_left()
 
     @abstractmethod
     def get_right_child(self, node: Node[T]) -> Optional[Node[T]]:
@@ -84,15 +88,26 @@ class ADTBinaryTree(ABC, Generic[T]):
         # 특정 노드를 트리에서 제거
         pass
 
+    # TODO: 추상화에서 구현 가능 / 순회 재귀
     @abstractmethod
     def get_size(self) -> int:
         # 트리에 포함된 전체 노드의 수를 반환
         pass
 
+    # TODO: 추상화에서 구현 가능 / 순회 재귀
     @abstractmethod
     def get_height(self) -> int:
         # 트리의 깊이(또는 높이)를 반환 / 루트 노드부터 가장 깊은 리프 노드까지의 최대 간선 수를 의미
-        pass
+        # pass
+        return self.__get_recursive_height(self.get_root())
+
+    def __get_recursive_height(self, node: Node[T]) -> int:
+        if node is None:
+            return 0
+        if self.__get_recursive_height(node.get_left()) > self.__get_recursive_height(node.get_right()):
+            return 1+self.__get_recursive_height(node.get_left())
+        else:
+            return 1+self.__get_recursive_height(node.get_right())
 
     # TODO: 반환에 왜 optional 인지 고민 필요 -> Done
     @abstractmethod
