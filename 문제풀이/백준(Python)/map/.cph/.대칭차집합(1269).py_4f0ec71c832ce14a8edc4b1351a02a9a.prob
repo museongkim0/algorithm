@@ -1,0 +1,1 @@
+{"name":"Local: 대칭차집합(1269)","url":"c:\\Users\\ms0\\Desktop\\git_ms\\algorithms\\문제풀이\\백준(Python)\\map\\대칭차집합(1269).py","tests":[{"id":1755098712587,"input":"3 5\n1 2 4\n2 3 4 5 6","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\ms0\\Desktop\\git_ms\\algorithms\\문제풀이\\백준(Python)\\map\\대칭차집합(1269).py","group":"local","local":true}
