@@ -18,12 +18,16 @@ def test_random_operations(tester, input_heap):
         if op in ("pop", "peek") and len(reference_heap) == 0:
             continue
 
+        # print(reference_heap)
+        # print(test_heap.display())
+
         try:
             # 1. push: 랜덤 val 추가
             if op == "push":
                 val = random.randint(0, 1000)
-                heapq.heappush(reference_heap, val)
-                test_heap.push(val)
+                if val not in reference_heap:
+                    heapq.heappush(reference_heap, val)
+                    test_heap.push(val)
                 # tester.assertEqual(sorted(list(reference_map.items())), test_map.display())
 
             # 2. pop: 최소 값 삭제

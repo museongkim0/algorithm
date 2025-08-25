@@ -7,8 +7,8 @@ T = TypeVar('T')
 
 class BinarySearchTree(ADTBinarySearchTree[T]):
     def __init__(self):
-        super().__init__(PointerBinaryTree[T]())
-        # super().__init__(ArrayBinaryTree[T]())
+        # super().__init__(PointerBinaryTree[T]())
+        super().__init__(ArrayBinaryTree[T]())
 
     def _get_edge_node(self, mode: str) -> Optional[T]:
         node = self.tree.get_root()

@@ -38,15 +38,15 @@ class PointerBinaryTree(ADTBinaryTree[T]):
 
     def __init__(self):
         self.root = None
-        self.size = 0
+
+    def create_node(self, data: T) -> Node[T]:
+        return self.Node(data)
 
     def set_root(self, data: T) -> None:
         if data is None:
             self.root = None
-            self.size = 0
             return
         self.root = self.Node(data)
-        self.size += 1
 
     def get_root(self) -> Optional[Node[T]]:
         # 트리의 루트 노드를 반환
@@ -55,52 +55,26 @@ class PointerBinaryTree(ADTBinaryTree[T]):
     def get_data(self, node: Node[T]) -> Optional[T]:
         # 특정 노드에 저장된 데이터를 반환
         return super().get_data(node)
-        # if node is None:
-        #     return None
-        # return node.get_data()
 
     def get_left_child(self, node: Node[T]) -> Optional[Node[T]]:
         # 특정 노드의 왼쪽 자식 노드를 반환
-        # if node is None:
-        #     return None
-        # return node.get_left()
         return super().get_left_child(node)
 
     def get_right_child(self, node: Node[T]) -> Optional[Node[T]]:
         # 특정 노드의 오른쪽 자식 노드를 반환
-        if node is None:
-            return None
-        return node.get_right()
+        return super().get_right_child(node)
 
     def is_empty(self) -> bool:
         # 트리가 비어있는지 여부를 반환
-        return self.root is None
+        return super().is_empty()
 
     def insert_left_child(self, node: Node[T], data: T) -> bool:
         # 주어진 parent_node의 왼쪽 자식으로 새 노드를 삽입 / 삽입 성공: True, 기존 노드가 있어 실패: False
-        if self.is_empty() or node is None:
-            return False
-        if node.get_left() is not None:
-            node.get_left().set_data(data)
-        else:
-            new_node = self.Node(data)
-            node.set_left(new_node)
-            new_node.set_parent(node)
-            self.size += 1
-        return True
+        return super().insert_left_child(node, data)
 
     def insert_right_child(self, node: Node[T], data: T) -> bool:
         # 주어진 parent_node의 오른쪽 자식으로 새 노드를 삽입
-        if self.is_empty() or node is None:
-            return False
-        if node.get_right() is not None:
-            node.get_right().set_data(data)
-        else:
-            new_node = self.Node(data)
-            node.set_right(new_node)
-            new_node.set_parent(node)
-            self.size += 1
-        return True
+        return super().insert_right_child(node, data)
 
     def remove_node(self, node: Node[T]) -> Optional[T]:
         # 특정 노드를 트리에서 제거
@@ -151,33 +125,15 @@ class PointerBinaryTree(ADTBinaryTree[T]):
 
     def get_size(self) -> int:
         # 트리에 포함된 전체 노드의 수를 반환
-        # return self.size
-        return self.__get_recursive_size(self.root)
-
-    def __get_recursive_size(self, node: Node[T]) -> int:
-        if node is None:
-            return 0
-        return 1+self.__get_recursive_size(node.get_left())+self.__get_recursive_size(node.get_right())
+        return super().get_size()
 
     def get_height(self) -> int:
         # 트리의 깊이(또는 높이)를 반환 / 루트 노드부터 가장 깊은 리프 노드까지의 최대 간선 수를 의미
-        # return self.__get_recursive_height(self.root)
         return super().get_height()
-
-    def __get_recursive_height(self, node: Node[T]) -> int:
-        if node is None:
-            return 0
-        if self.__get_recursive_height(node.get_left()) > self.__get_recursive_height(node.get_right()):
-            return 1+self.__get_recursive_height(node.get_left())
-        else:
-            return 1+self.__get_recursive_height(node.get_right())
-
 
     def is_leaf(self, node: Node[T]) -> bool:
         # 특정 노드가 리프 노드(자식 노드가 없는 노드)인지 여부를 반환
-        if self.is_empty() or node is None:
-            return False
-        return node.get_left() is None and node.get_right() is None
+        return super().is_leaf(node)
 
     def __in_order(self, node: T, answer: []):
         if node is None:
@@ -211,111 +167,6 @@ class PointerBinaryTree(ADTBinaryTree[T]):
         if node.get_left():
             self.print_subtree(node.get_left(), prefix + ("    " if is_left else "│   "), True)
 
-# # TODO: 사이즈 변수 사용하면 재귀를 매번 하지 않아도 됨
-# class ArrayBinaryTree(ADTBinaryTree[T]):
-#     def __init__(self):
-#         self.list = [None]*100
-#
-#     def set_root(self, data: T):
-#         self.list[1] = data
-#
-#     def get_root(self) -> Optional[T]:
-#         # 트리의 루트 노드를 반환
-#         return 1
-#
-#     def get_data(self, index: int) -> Optional[T]:
-#         # 특정 노드에 저장된 데이터를 반환
-#         if index < 1:
-#             return None
-#         return self.list[index]
-#
-#     def get_left_child(self, index: int) -> Optional[T]:
-#         # 특정 노드의 왼쪽 자식 노드를 반환
-#         if index < 1:
-#             return None
-#         if self.list[2*index] is None:
-#             return None
-#         return 2*index
-#
-#     def get_right_child(self, index: int) -> Optional[T]:
-#         # 특정 노드의 오른쪽 자식 노드를 반환
-#         if index < 1:
-#             return None
-#         if self.list[2*index+1] is None:
-#             return None
-#         return 2*index+1
-#
-#     def is_empty(self) -> bool:
-#         # 트리가 비어있는지 여부를 반환
-#         return self.list[1] is None
-#
-#     def insert_left_child(self, index: int, data: T) -> bool:
-#         # 주어진 parent_node의 왼쪽 자식으로 새 노드를 삽입 / 삽입 성공: True, 기존 노드가 있어 실패: False
-#         if self.is_empty() or index < 1:
-#             return False
-#         self.list[2*index] = data
-#         return True
-#
-#     def insert_right_child(self, index: int, data: T) -> bool:
-#         # 주어진 parent_node의 오른쪽 자식으로 새 노드를 삽입
-#         if self.is_empty() or index < 1:
-#             return False
-#         self.list[2*index+1] = data
-#         return True
-#
-#     # TODO: 배열 기반 삭제 질문
-#     # TODO: 재귀로 구현
-#     def remove_node(self, index: int) -> Optional[T]:
-#         # 특정 노드를 트리에서 제거
-#         if index < 1:
-#             return None
-#         if self.is_leaf(index):
-#             self.list[index] = None
-#             return index
-#         if self.list[2*index] is None and self.list[2*index+1] is not None:
-#             if index == 1:
-#                 self.list = self.list[2*index:]
-#
-#     def get_size(self) -> int:
-#         # 트리에 포함된 전체 노드의 수를 반환
-#         return self.__get_recursive_size(1)
-#
-#     def __get_recursive_size(self, index: int) -> int:
-#         if self.list[index] is None:
-#             return 0
-#         return 1+self.__get_recursive_size(2*index)+self.__get_recursive_size(2*index+1)
-#
-#     def get_height(self) -> int:
-#         # 트리의 깊이(또는 높이)를 반환 / 루트 노드부터 가장 깊은 리프 노드까지의 최대 간선 수를 의미
-#         return self.__get_recursive_height(1)
-#
-#     def __get_recursive_height(self, index: int) -> int:
-#         if self.list[index] is None:
-#             return 0
-#         # TODO: 함수 중복 계산 두번 비효율 -> 변수로 변경
-#         left_height = self.__get_recursive_height(2*index)
-#         right_height = self.__get_recursive_height(2*index+1)
-#         if left_height > right_height:
-#             return 1+left_height
-#         else:
-#             return 1+right_height
-#
-#     def is_leaf(self, index: int) -> bool:
-#         # 특정 노드가 리프 노드(자식 노드가 없는 노드)인지 여부를 반환
-#         if self.is_empty() or self.list[index] is None:
-#             return False
-#         return self.list[self.get_left_child(index)] is None and self.list[self.get_right_child(index)] is None
-#
-#     # 서브트리를 (간단하게) 출력하는 함수 (재귀)
-#     def print_subtree(self, index: Optional[int], prefix: str = "", is_left: bool = True):
-#         if index is None:
-#             return
-#
-#         if self.list[2*index+1] is not None:
-#             self.print_subtree(2*index+1, prefix + ("│   " if is_left else "    "), False)
-#         print(prefix + ("└── " if is_left else "┌── ") + str(self.list[index]))
-#         if self.list[2*index] is not None:
-#             self.print_subtree(2*index, prefix + ("    " if is_left else "│   "), True)
 
 class ArrayBinaryTree(ADTBinaryTree[T]):
     class Node(Node[T]):
@@ -338,7 +189,16 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
 
         def set_left(self, node: Optional['ArrayBinaryTree.Node']) -> None:
             # 배열 기반에서는 직접 set하지 않고 insert 메서드를 통해 처리
-            pass
+            if node is None:
+                # 왼쪽 자식 삭제
+                left_index = 2 * self._index
+                if left_index < len(self._tree.list):
+                    self._tree.list[left_index] = None
+            else:
+                # 새로운 노드의 데이터를 왼쪽 자식 위치에 복사
+                left_index = 2 * self._index
+                self._tree._ensure_capacity(left_index)
+                self._tree.list[left_index] = node.get_data()
 
         def get_right(self) -> Optional['ArrayBinaryTree.Node']:
             right_index = 2 * self._index + 1
@@ -349,7 +209,14 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
 
         def set_right(self, node: Optional['ArrayBinaryTree.Node']) -> None:
             # 배열 기반에서는 직접 set하지 않고 insert 메서드를 통해 처리
-            pass
+            if node is None:
+                right_index = 2 * self._index + 1
+                if right_index < len(self._tree.list):
+                    self._tree.list[right_index] = None
+            else:
+                right_index = 2 * self._index + 1
+                self._tree._ensure_capacity(right_index)
+                self._tree.list[right_index] = node.get_data()
 
         def get_parent(self) -> Optional['ArrayBinaryTree.Node']:
             if self._index == 1:  # 루트 노드
@@ -370,7 +237,6 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
 
     def __init__(self, initial_size: int = 100):
         self.list = [None] * initial_size
-        self.size = 0
 
     def _ensure_capacity(self, index: int) -> None:
         """배열 크기가 부족하면 확장"""
@@ -381,11 +247,15 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
                 new_list[i] = self.list[i]
             self.list = new_list
 
+    def create_node(self, data: T) -> Node[T]:
+        # 임시 노드 생성 (실제 사용 시 인덱스 지정 필요)
+        node = self.Node(self, 0)
+        node.set_data(data)
+        return node
+
     def set_root(self, data: T) -> None:
         self._ensure_capacity(1)
-        if self.list[1] is None:
-            self.size += 1
-        self.list[1] = data
+        self.Node(self,1).set_data(data)
 
     def get_root(self) -> Optional[Node[T]]:
         if self.list[1] is not None:
@@ -393,50 +263,44 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
         return None
 
     def get_data(self, node: Node[T]) -> Optional[T]:
-        if node is None or not isinstance(node, self.Node):
-            return None
-        return node.get_data()
+        return super().get_data(node)
 
     def get_left_child(self, node: Node[T]) -> Optional[Node[T]]:
-        if node is None or not isinstance(node, self.Node):
-            return None
-        return node.get_left()
+        return super().get_left_child(node)
 
     def get_right_child(self, node: Node[T]) -> Optional[Node[T]]:
-        if node is None or not isinstance(node, self.Node):
-            return None
-        return node.get_right()
+        return super().get_right_child(node)
 
     def is_empty(self) -> bool:
-        return self.size == 0
+        return super().is_empty()
 
     def insert_left_child(self, node: Node[T], data: T) -> bool:
-        if self.is_empty() or node is None or not isinstance(node, self.Node):
-            return False
-
-        left_index = 2 * node.get_index()
-        self._ensure_capacity(left_index)
-
-        if self.list[left_index] is not None:
-            self.list[left_index] = data
-            return False
-        self.list[left_index] = data
-        self.size += 1
-        return True
+        # if self.is_empty() or node is None or not isinstance(node, self.Node):
+        #     return False
+        #
+        # left_index = 2 * node.get_index()
+        # self._ensure_capacity(left_index)
+        #
+        # if self.list[left_index] is not None:
+        #     self.list[left_index] = data
+        #     return False
+        # self.list[left_index] = data
+        # return True
+        return super().insert_left_child(node, data)
 
     def insert_right_child(self, node: Node[T], data: T) -> bool:
-        if self.is_empty() or node is None or not isinstance(node, self.Node):
-            return False
-
-        right_index = 2 * node.get_index() + 1
-        self._ensure_capacity(right_index)
-
-        if self.list[right_index] is not None:
-            self.list[right_index] = data
-            return False
-        self.list[right_index] = data
-        self.size += 1
-        return True
+        # if self.is_empty() or node is None or not isinstance(node, self.Node):
+        #     return False
+        #
+        # right_index = 2 * node.get_index() + 1
+        # self._ensure_capacity(right_index)
+        #
+        # if self.list[right_index] is not None:
+        #     self.list[right_index] = data
+        #     return False
+        # self.list[right_index] = data
+        # return True
+        return super().insert_right_child(node, data)
 
     def remove_node(self, node: Node[T]) -> Optional[T]:
         if node is None or not isinstance(node, self.Node):
@@ -451,7 +315,6 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
         # 1. 리프 노드
         if self.is_leaf(node):
             self.list[index] = None
-            self.size -= 1
             return removed_data
 
         left_index = 2 * index
@@ -459,74 +322,178 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
         has_left = (left_index < len(self.list) and self.list[left_index] is not None)
         has_right = (right_index < len(self.list) and self.list[right_index] is not None)
 
-        # 2. 오른쪽 자식만 있는 경우: 오른쪽 서브트리를 현재 위치로 이동
-        if not has_left and has_right:
-            self._move_subtree(right_index, index)
-            self.size -= 1
+        # 2. 왼쪽 자식만 있는 경우: 왼쪽 서브트리를 현재 위치로 이동
+        if has_left and not has_right:
+            self._move_subtree_to_position(left_index, index)
             return removed_data
 
-        # 3. 왼쪽 자식만 있는 경우: 왼쪽 서브트리를 현재 위치로 이동
-        if has_left and not has_right:
-            self._move_subtree(left_index, index)
-            self.size -= 1
+        # 3. 오른쪽 자식만 있는 경우: 오른쪽 서브트리를 현재 위치로 이동
+        if not has_left and has_right:
+            self._move_subtree_to_position(right_index, index)
             return removed_data
 
         # 4. 양쪽 자식 모두 있는 경우: successor로 교체 후 successor 삭제
         if has_left and has_right:
-            successor_index = right_index
-            while (2 * successor_index < len(self.list) and
-                   self.list[2 * successor_index] is not None):
-                successor_index = 2 * successor_index
-
+            successor_index = self._find_leftmost_in_subtree(right_index)
             self.list[index] = self.list[successor_index]
             successor_node = self.Node(self, successor_index)
-            self.remove_node(successor_node)  # 이때만 재귀 삭제
+            self.remove_node(successor_node)  # 재귀 삭제
             return removed_data
 
         return None
 
-    def _move_subtree(self, from_index: int, to_index: int) -> None:
+    def _find_leftmost_in_subtree(self, root_index: int) -> int:
+        """서브트리에서 가장 왼쪽 노드의 인덱스 찾기 (inorder successor)"""
+        current = root_index
+        while (2 * current < len(self.list) and self.list[2 * current] is not None):
+            current = 2 * current
+        return current
+
+    def _move_subtree_to_position(self, from_index: int, to_index: int) -> None:
+        """서브트리를 특정 위치로 완전히 이동"""
         if from_index >= len(self.list) or self.list[from_index] is None:
             return
 
-        # 1단계: 전체 서브트리 복사
-        self._copy_subtree(from_index, to_index)
+        # print(f"Moving subtree from index {from_index} to {to_index}")
+        # print(f"Before move: {self.list}")
+
+        # 1단계: 서브트리 전체 구조를 임시 저장
+        subtree_data = self._extract_subtree(from_index)
+
+        # print(f"Extracted subtree: {subtree_data}")
 
         # 2단계: 원본 서브트리 완전 삭제
         self._clear_subtree(from_index)
 
-    def _copy_subtree(self, from_index: int, to_index: int) -> None:
-        """서브트리 복사 (원본 건드리지 않음)"""
-        if from_index >= len(self.list) or self.list[from_index] is None:
-            return
+        # print(f"After clear: {self.list}")
 
-        self._ensure_capacity(to_index)
-        self.list[to_index] = self.list[from_index]
+        # 3단계: 새 위치에 서브트리 재구성
+        self._rebuild_subtree_at_position(subtree_data, to_index)
 
-        # 자식들 재귀 복사
-        self._copy_subtree(2 * from_index, 2 * to_index)
-        self._copy_subtree(2 * from_index + 1, 2 * to_index + 1)
+        # print(f"After rebuild: {self.list}")
+
+    def _extract_subtree(self, root_index: int) -> dict:
+        """서브트리의 모든 데이터를 추출해서 딕셔너리로 반환"""
+        if root_index >= len(self.list) or self.list[root_index] is None:
+            return {}
+
+        subtree = {}
+
+        # BFS로 서브트리 전체를 탐색
+        queue = [root_index]
+        while queue:
+            current_index = queue.pop(0)
+            if current_index < len(self.list) and self.list[current_index] is not None:
+                # 상대적 위치 계산 (root를 1로 정규화)
+                relative_pos = self._get_relative_position(root_index, current_index)
+                subtree[relative_pos] = self.list[current_index]
+
+                # 자식들을 큐에 추가
+                left_child = 2 * current_index
+                right_child = 2 * current_index + 1
+
+                if left_child < len(self.list) and self.list[left_child] is not None:
+                    queue.append(left_child)
+                if right_child < len(self.list) and self.list[right_child] is not None:
+                    queue.append(right_child)
+
+        return subtree
+
+    def _get_relative_position(self, root_index: int, current_index: int) -> int:
+        """루트를 기준으로 한 상대적 위치 계산"""
+        if current_index == root_index:
+            return 1  # 새로운 루트는 항상 1
+
+        # 현재 인덱스가 루트로부터 어떤 경로에 있는지 계산
+        path = []
+        temp = current_index
+
+        while temp != root_index:
+            if temp % 2 == 0:  # 왼쪽 자식
+                path.append('L')
+                temp = temp // 2
+            else:  # 오른쪽 자식
+                path.append('R')
+                temp = temp // 2
+
+        # 경로를 역순으로 뒤집어서 새로운 위치 계산
+        path.reverse()
+        new_pos = 1
+        for direction in path:
+            if direction == 'L':
+                new_pos = new_pos * 2
+            else:  # 'R'
+                new_pos = new_pos * 2 + 1
+
+        return new_pos
+
+    def _rebuild_subtree_at_position(self, subtree_data: dict, new_root_index: int) -> None:
+        """추출한 서브트리 데이터를 새로운 위치에 재구성"""
+        for relative_pos, data in subtree_data.items():
+            # 상대적 위치를 절대적 위치로 변환
+            if relative_pos == 1:
+                actual_index = new_root_index
+            else:
+                # relative_pos를 경로로 변환해서 new_root_index 기준으로 실제 인덱스 계산
+                actual_index = self._calculate_actual_index(new_root_index, relative_pos)
+
+            self._ensure_capacity(actual_index)
+            self.list[actual_index] = data
+
+    def _calculate_actual_index(self, base_index: int, relative_pos: int) -> int:
+        """상대적 위치를 실제 배열 인덱스로 변환"""
+        if relative_pos == 1:
+            return base_index
+
+        # relative_pos를 이진 표현으로 변환해서 경로 추출
+        # 예: relative_pos = 5 (101) -> 루트에서 L, R 경로
+        path = []
+        temp = relative_pos
+
+        while temp > 1:
+            if temp % 2 == 0:  # 왼쪽
+                path.append('L')
+                temp = temp // 2
+            else:  # 오른쪽
+                path.append('R')
+                temp = temp // 2
+
+        path.reverse()
+
+        # 경로를 따라가며 실제 인덱스 계산
+        current_index = base_index
+        for direction in path:
+            if direction == 'L':
+                current_index = current_index * 2
+            else:  # 'R'
+                current_index = current_index * 2 + 1
+
+        return current_index
 
     def _clear_subtree(self, index: int) -> None:
-        """서브트리 완전 삭제"""
+        """서브트리 완전 삭제 (개선된 버전)"""
         if index >= len(self.list) or self.list[index] is None:
             return
 
-        # 자식들 먼저 삭제
-        self._clear_subtree(2 * index)
-        self._clear_subtree(2 * index + 1)
+        # 자식들 먼저 재귀적으로 삭제
+        left_child = 2 * index
+        right_child = 2 * index + 1
+
+        self._clear_subtree(left_child)
+        self._clear_subtree(right_child)
 
         # 현재 노드 삭제
         self.list[index] = None
 
     def get_size(self) -> int:
-        return len([i for i in self.list[1:] if i is not None])
-        # return self.size
+        return super().get_size()
+        # return len([i for i in self.list[1:] if i is not None])
 
     def get_height(self) -> int:
-        if self.is_empty():
-            return -1
-        return self.__get_recursive_height(1)
+        # if self.is_empty():
+        #     return -1
+        # return self.__get_recursive_height(1)
+        return super().get_height()
 
     def __get_recursive_height(self, index: int) -> int:
         if index >= len(self.list) or self.list[index] is None:
@@ -538,22 +505,23 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
         return max(left_height, right_height) + 1
 
     def is_leaf(self, node: Node[T]) -> bool:
-        if not isinstance(node, self.Node) or self.is_empty():
-            return False
-
-        index = node.get_index()
-        left_index = 2 * index
-        right_index = 2 * index + 1
-
-        left_exists = (left_index < len(self.list) and
-                       self.list[left_index] is not None)
-        right_exists = (right_index < len(self.list) and
-                        self.list[right_index] is not None)
-
-        return not left_exists and not right_exists
+        # if not isinstance(node, self.Node) or self.is_empty():
+        #     return False
+        #
+        # index = node.get_index()
+        # left_index = 2 * index
+        # right_index = 2 * index + 1
+        #
+        # left_exists = (left_index < len(self.list) and
+        #                self.list[left_index] is not None)
+        # right_exists = (right_index < len(self.list) and
+        #                 self.list[right_index] is not None)
+        #
+        # return not left_exists and not right_exists
+        return super().is_leaf(node)
 
     def display(self) -> None:
-        print(self.list[1:])
+        # print(self.list[1:])
         self.print_subtree(1)
 
     def print_subtree(self, index: int, prefix: str = "", is_left: bool = True):
@@ -570,30 +538,40 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
         if (left_index < len(self.list) and self.list[left_index] is not None):
             self.print_subtree(left_index, prefix + ("    " if is_left else "│   "), True)
 
-binary_tree = PointerBinaryTree()
+    def get_last_node(self):
+        for i in range(1, len(self.list)):
+            if self.list[i] is None:
+                return self.Node(self, i-1)
+
+    def insert_last(self, data: T):
+        for i in range(1, len(self.list)):
+            if self.list[i] is None:
+                self.list[i] = data
+                return
+# binary_tree = PointerBinaryTree()
 # binary_tree = ArrayBinaryTree()
-print(binary_tree.is_empty())
-binary_tree.set_root(5)
-root = binary_tree.get_root()
-print(root, binary_tree.get_data(root))
-print(binary_tree.insert_left_child(root, 1))
-binary_tree.insert_right_child(root, 2)
-binary_tree.insert_right_child(root, 6)
-binary_tree.insert_right_child(binary_tree.get_left_child(root), 3)
-binary_tree.insert_right_child(binary_tree.get_right_child(root), 4)
-binary_tree.insert_right_child(binary_tree.get_right_child(binary_tree.get_right_child(root)), 10)
-# binary_tree.print_subtree(root.get_index())
-print(binary_tree.remove_node(root))
-# binary_tree.print_subtree(root.get_index())
-print(binary_tree.get_data(root))
-binary_tree.insert_left_child(binary_tree.get_right_child(root), 7)
-binary_tree.insert_right_child(binary_tree.get_left_child(binary_tree.get_right_child(root)), 12)
-# binary_tree.print_subtree(root.get_index())
-print(binary_tree.remove_node(root))
-# binary_tree.print_subtree(root.get_index())
-print(binary_tree.get_size())
-print(binary_tree.get_height())
-print(binary_tree.is_leaf(binary_tree.get_right_child(binary_tree.get_left_child(root))))
-print(binary_tree.is_empty())
-print(binary_tree.remove_node(binary_tree.get_right_child(root)))
-# binary_tree.print_subtree(root.get_index())
+# print(binary_tree.is_empty())
+# binary_tree.set_root(5)
+# root = binary_tree.get_root()
+# print(root, binary_tree.get_data(root))
+# print(binary_tree.insert_left_child(root, 1))
+# binary_tree.insert_right_child(root, 2)
+# binary_tree.insert_right_child(root, 6)
+# binary_tree.insert_right_child(binary_tree.get_left_child(root), 3)
+# binary_tree.insert_right_child(binary_tree.get_right_child(root), 4)
+# binary_tree.insert_right_child(binary_tree.get_right_child(binary_tree.get_right_child(root)), 10)
+# binary_tree.display()
+# print(binary_tree.remove_node(root))
+# binary_tree.display()
+# print(binary_tree.get_data(root))
+# binary_tree.insert_left_child(binary_tree.get_right_child(root), 7)
+# binary_tree.insert_right_child(binary_tree.get_left_child(binary_tree.get_right_child(root)), 12)
+# binary_tree.display()
+# print(binary_tree.remove_node(root))
+# binary_tree.display()
+# print(binary_tree.get_size())
+# print(binary_tree.get_height())
+# print(binary_tree.is_leaf(binary_tree.get_right_child(binary_tree.get_left_child(root))))
+# print(binary_tree.is_empty())
+# print(binary_tree.remove_node(binary_tree.get_right_child(root)))
+# binary_tree.display()

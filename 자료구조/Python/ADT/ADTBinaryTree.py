@@ -43,6 +43,11 @@ class ADTBinaryTree(ABC, Generic[T]):
     # type NodeInner : Node[T]
 
     @abstractmethod
+    def create_node(self, data: T) -> Node[T]:
+        # 구체적인 Node 인스턴스를 생성하는 팩토리 메서드
+        pass
+
+    @abstractmethod
     def get_root(self) -> Optional[Node[T]]:
         # 트리의 루트 노드를 반환
         pass
@@ -55,32 +60,49 @@ class ADTBinaryTree(ABC, Generic[T]):
     @abstractmethod
     def get_data(self, node: Node[T]) -> Optional[T]:
         # 특정 노드에 저장된 데이터를 반환
+        if node is None:
+            return None
         return node.get_data()
 
     @abstractmethod
     def get_left_child(self, node: Node[T]) -> Optional[Node[T]]:
         # 특정 노드의 왼쪽 자식 노드를 반환
+        if node is None:
+            return None
         return node.get_left()
 
     @abstractmethod
     def get_right_child(self, node: Node[T]) -> Optional[Node[T]]:
         # 특정 노드의 오른쪽 자식 노드를 반환
-        pass
-
-    @abstractmethod
-    def is_empty(self) -> bool:
-        # 트리가 비어있는지 여부를 반환
-        pass
+        if node is None:
+            return None
+        return node.get_right()
 
     @abstractmethod
     def insert_left_child(self, node: Node[T], data: T) -> bool:
         # 주어진 parent_node의 왼쪽 자식으로 새 노드를 삽입 / 삽입 성공: True, 기존 노드가 있어 실패: False
-        pass
+        if self.is_empty() or node is None:
+            return False
+        if node.get_left() is not None:
+            node.get_left().set_data(data)
+        else:
+            new_node = self.create_node(data)
+            node.set_left(new_node)
+            new_node.set_parent(node)
+        return True
 
     @abstractmethod
     def insert_right_child(self, node: Node[T], data: T) -> bool:
         # 주어진 parent_node의 오른쪽 자식으로 새 노드를 삽입
-        pass
+        if self.is_empty() or node is None:
+            return False
+        if node.get_right() is not None:
+            node.get_right().set_data(data)
+        else:
+            new_node = self.create_node(data)
+            node.set_right(new_node)
+            new_node.set_parent(node)
+        return True
 
     # TODO: Generic 다시 검토 -> Done
     @abstractmethod
@@ -88,17 +110,26 @@ class ADTBinaryTree(ABC, Generic[T]):
         # 특정 노드를 트리에서 제거
         pass
 
+    @abstractmethod
+    def is_empty(self) -> bool:
+        # 트리가 비어있는지 여부를 반환
+        return self.get_root() is None
+
     # TODO: 추상화에서 구현 가능 / 순회 재귀
     @abstractmethod
     def get_size(self) -> int:
         # 트리에 포함된 전체 노드의 수를 반환
-        pass
+        return self.__get_recursive_size(self.get_root())
+
+    def __get_recursive_size(self, node: Node[T]) -> int:
+        if node is None:
+            return 0
+        return 1+self.__get_recursive_size(node.get_left())+self.__get_recursive_size(node.get_right())
 
     # TODO: 추상화에서 구현 가능 / 순회 재귀
     @abstractmethod
     def get_height(self) -> int:
         # 트리의 깊이(또는 높이)를 반환 / 루트 노드부터 가장 깊은 리프 노드까지의 최대 간선 수를 의미
-        # pass
         return self.__get_recursive_height(self.get_root())
 
     def __get_recursive_height(self, node: Node[T]) -> int:
@@ -113,7 +144,9 @@ class ADTBinaryTree(ABC, Generic[T]):
     @abstractmethod
     def is_leaf(self, node: Node[T]) -> bool:
         # 특정 노드가 리프 노드(자식 노드가 없는 노드)인지 여부를 반환
-        pass
+        if self.is_empty() or node is None:
+            return False
+        return node.get_left() is None and node.get_right() is None
 
     def display(self) -> None:
         pass

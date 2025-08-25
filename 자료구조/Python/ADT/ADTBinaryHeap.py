@@ -8,9 +8,9 @@ class ADTBinaryHeap(ABC, Generic[T]):
     # def __init__(self, tree: ADTBinaryTree[T]):
     #     self.tree = tree
 
-    # @abstractmethod
-    # def get_tree(self)-> ADTBinaryTree[T]:
-    #     pass
+    @abstractmethod
+    def get_tree(self)-> ADTBinaryTree[T]:
+        pass
 
     @abstractmethod
     def push(self, data: T) -> None:
@@ -25,16 +25,13 @@ class ADTBinaryHeap(ABC, Generic[T]):
     @abstractmethod
     def peek(self) -> Optional[T]:
         # 최소값/최대값 반환
-        pass
-        # return self.get_tree().get_root().get_data()
+        return self.get_tree().get_root().get_data()
 
     @abstractmethod
     def get_size(self) -> int:
-        pass
-        # return self.get_tree().get_size()
+        return self.get_tree().get_size()
 
     @abstractmethod
     def is_empty(self) -> bool:
         # 비어 있는지 여부 반환
-        pass
-        # return self.get_tree().is_empty()
+        return self.get_tree().is_empty()
