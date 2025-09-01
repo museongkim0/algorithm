@@ -275,31 +275,9 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
         return super().is_empty()
 
     def insert_left_child(self, node: Node[T], data: T) -> bool:
-        # if self.is_empty() or node is None or not isinstance(node, self.Node):
-        #     return False
-        #
-        # left_index = 2 * node.get_index()
-        # self._ensure_capacity(left_index)
-        #
-        # if self.list[left_index] is not None:
-        #     self.list[left_index] = data
-        #     return False
-        # self.list[left_index] = data
-        # return True
         return super().insert_left_child(node, data)
 
     def insert_right_child(self, node: Node[T], data: T) -> bool:
-        # if self.is_empty() or node is None or not isinstance(node, self.Node):
-        #     return False
-        #
-        # right_index = 2 * node.get_index() + 1
-        # self._ensure_capacity(right_index)
-        #
-        # if self.list[right_index] is not None:
-        #     self.list[right_index] = data
-        #     return False
-        # self.list[right_index] = data
-        # return True
         return super().insert_right_child(node, data)
 
     def remove_node(self, node: Node[T]) -> Optional[T]:
@@ -487,37 +465,11 @@ class ArrayBinaryTree(ADTBinaryTree[T]):
 
     def get_size(self) -> int:
         return super().get_size()
-        # return len([i for i in self.list[1:] if i is not None])
 
     def get_height(self) -> int:
-        # if self.is_empty():
-        #     return -1
-        # return self.__get_recursive_height(1)
         return super().get_height()
 
-    def __get_recursive_height(self, index: int) -> int:
-        if index >= len(self.list) or self.list[index] is None:
-            return -1
-
-        left_height = self.__get_recursive_height(2 * index)
-        right_height = self.__get_recursive_height(2 * index + 1)
-
-        return max(left_height, right_height) + 1
-
     def is_leaf(self, node: Node[T]) -> bool:
-        # if not isinstance(node, self.Node) or self.is_empty():
-        #     return False
-        #
-        # index = node.get_index()
-        # left_index = 2 * index
-        # right_index = 2 * index + 1
-        #
-        # left_exists = (left_index < len(self.list) and
-        #                self.list[left_index] is not None)
-        # right_exists = (right_index < len(self.list) and
-        #                 self.list[right_index] is not None)
-        #
-        # return not left_exists and not right_exists
         return super().is_leaf(node)
 
     def display(self) -> None:
